@@ -2,6 +2,6 @@ mod utils;
 mod day4;
 
 fn main() {
-  day4::day_4();
+  day4::day_4_part_2();
 }
 
