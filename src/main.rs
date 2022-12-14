@@ -1,8 +1,8 @@
 mod utils;
-mod day11;
+mod day12;
 
 fn main() {
-  day11::day_11_part_2();
+  day12::day_12();
 
   // day7::day_7();
   /*let mut root = Node { name: "a".to_string(), children: vec![] };
