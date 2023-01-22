@@ -12,9 +12,6 @@ pub fn day_14() {
 
   let lowest_level = NUM_ROWS - graph.iter().rev().position(|row| row.contains(&Rock)).unwrap() + Y_OFFSET;
   let successful_drops = count_successful_drops(&mut graph, lowest_level);
-
-  graph[SAND_Y - Y_OFFSET][SAND_X - X_OFFSET] = Sand;
-  println!("Lowest is {}", lowest_level);
   print_graph(&graph);
   println!("Successful drops: {}", successful_drops);
 }
@@ -26,8 +23,6 @@ pub fn day_14_part_2() {
   graph[lowest_level - 1] = [Rock; NUM_COLS];
 
   let successful_drops = count_successful_drops(&mut graph, lowest_level);
-
-  println!("Lowest is {}", lowest_level);
   print_graph(&graph);
   println!("Successful drops: {}", successful_drops);
 }
@@ -113,6 +108,7 @@ fn get_coords(line: String) -> Vec<(i32, i32)> {
   let mut coordinates = vec![];
   for instruction in instructions.into_iter() {
     let coords: Vec<&str> = instruction.split(',').collect();
+    let Some(f) = coords.get(0) else { panic!() };
     let x: i32 = coords.get(0).unwrap().parse().unwrap();
     let y: i32 = coords.get(1).unwrap().parse().unwrap();
     coordinates.push((x, y));
